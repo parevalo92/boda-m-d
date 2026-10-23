@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#faf7f1" />
+  <meta name="description" content="Michael & Daniela — una celebración de amor. 11 de abril de 2027." />
+  <title>Michael & Daniela | 11.04.2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="site-header" id="header">
+    <a href="#home" class="monogram" aria-label="Michael y Daniela, inicio">M <span class="monogram-amp">&</span> D<span class="monogram-dot">.</span></a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#story" data-i18n="navStory">Nuestra historia</a>
+      <a href="#details" data-i18n="navDetails">La celebración</a>
+      <a href="#gallery" data-i18n="navGallery">Momentos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-switch" id="languageToggle" type="button" aria-label="Switch language to English">EN <span aria-hidden="true">↗</span></button>
+      <a class="header-rsvp" href="#rsvp"><span data-i18n="navRsvp">Confirmar asistencia</span><span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menú"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav id="mobileNav" class="mobile-nav" aria-label="Menú móvil" inert>
+    <a href="#story" data-i18n="navStory">Nuestra historia</a><a href="#details" data-i18n="navDetails">La celebración</a><a href="#gallery" data-i18n="navGallery">Momentos</a><a href="#rsvp" data-i18n="navRsvp">Confirmar asistencia</a>
+  </nav>
+  <main>
+    <section id="home" class="hero" aria-label="Michael y Daniela">
+      <div class="hero-media" id="heroMedia">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-poster.jpg" aria-hidden="true">
+          <source src="assets/video/wedding-hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-fallback" role="img" aria-label="Flores delicadas y ambiente romántico"></div>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-eyebrow" data-i18n="heroEyebrow">UNA HISTORIA PARA SIEMPRE · 11 ABRIL 2027</div>
+      <div class="hero-content">
+        <span class="hero-small reveal" data-i18n="heroPrelude">Con todo nuestro amor</span>
+        <h1 class="reveal">Michael <em>&</em> Daniela</h1>
+        <p class="hero-subtitle reveal" data-i18n="heroSubtitle">El comienzo de nuestro para siempre.</p>
+        <a href="#story" class="editorial-link reveal"><span data-i18n="discover">Descubre nuestra historia</span><span class="arrow-circle" aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-bottom"><span data-i18n="heroLocation">EL SALVADOR · 2027</span><a href="#story" class="scroll-cue"><span data-i18n="scroll">DESLIZA PARA EXPLORAR</span><span class="scroll-line"></span></a><span>01 / 05</span></div>
+    </section>
+
+    <section class="intro section-pad" id="story">
+      <div class="section-kicker reveal"><span class="kicker-line"></span><span data-i18n="storyKicker">CAPÍTULO UNO — NOSOTROS</span></div>
+      <div class="intro-grid">
+        <div class="intro-copy"><h2 class="display reveal" data-i18n-html="storyTitle">Dos almas.<br><em>Una historia.</em></h2><p class="body-copy reveal" data-i18n="storyBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis neque sed arcu tempus luctus. Cada encuentro, cada sonrisa y cada pequeño instante nos ha traído hasta aquí.</p><span class="signature reveal">M <i>&</i> D</span></div>
+        <div class="intro-art reveal"><div class="image-mask image-tall"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1100&q=85" alt="Celebración de boda en un jardín" loading="lazy" /></div><div class="floating-caption" data-i18n="storyCaption">Un amor que florece</div></div>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Nuestro compromiso"><div class="quote-parallax"></div><div class="quote-tint"></div><div class="quote-content reveal"><span class="overline" data-i18n="quoteOverline">EL AMOR ESTÁ EN LOS DETALLES</span><p data-i18n-html="quoteText">“Y de pronto, todos los caminos<br>nos llevaron <em>al mismo lugar.</em>”</p><span class="quote-flower" aria-hidden="true">✳</span></div></section>
+
+    <section id="details" class="details section-pad"><div class="section-kicker reveal"><span class="kicker-line"></span><span data-i18n="detailsKicker">CAPÍTULO DOS — EL GRAN DÍA</span></div><div class="details-heading"><h2 class="display reveal" data-i18n-html="detailsTitle">Una fecha.<br><em>Mil emociones.</em></h2><p class="body-copy reveal" data-i18n="detailsIntro">Nos encantaría que nos acompañaras a celebrar este nuevo capítulo. Aquí comienza la cuenta regresiva.</p></div>
+      <div class="countdown" aria-label="Cuenta regresiva para la boda"><div class="count-unit"><strong id="days">000</strong><span data-i18n="days">DÍAS</span></div><div class="count-separator">:</div><div class="count-unit"><strong id="hours">00</strong><span data-i18n="hours">HORAS</span></div><div class="count-separator">:</div><div class="count-unit"><strong id="minutes">00</strong><span data-i18n="minutes">MINUTOS</span></div><div class="count-separator">:</div><div class="count-unit"><strong id="seconds">00</strong><span data-i18n="seconds">SEGUNDOS</span></div></div>
+      <div class="date-line"><span>DOMINGO</span><span class="date-number">11</span><span>ABRIL 2027</span></div>
+      <div class="details-cards"><article class="detail-card reveal"><span class="card-index">01 /</span><div class="card-icon">✳</div><h3 data-i18n="ceremony">La ceremonia</h3><p data-i18n="ceremonyCopy">Un momento para celebrar el amor rodeados de las personas que más queremos.</p><span class="detail-note" data-i18n="venuePending">Lugar y hora por confirmar</span></article><article class="detail-card reveal"><span class="card-index">02 /</span><div class="card-icon">❋</div><h3 data-i18n="reception">La recepción</h3><p data-i18n="receptionCopy">Brindemos, bailemos y hagamos recuerdos que duren toda la vida.</p><span class="detail-note" data-i18n="venuePending">Lugar y hora por confirmar</span></article></div>
+    </section>
+
+    <section id="gallery" class="gallery section-pad"><div class="gallery-heading"><div><div class="section-kicker reveal"><span class="kicker-line"></span><span data-i18n="galleryKicker">CAPÍTULO TRES — RECUERDOS</span></div><h2 class="display reveal" data-i18n-html="galleryTitle">Pequeños instantes.<br><em>Grandes recuerdos.</em></h2></div><p class="body-copy reveal" data-i18n="galleryCopy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Algunas historias se cuentan mejor con imágenes.</p></div><div class="gallery-grid"><figure class="gallery-item gallery-one reveal"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1000&q=85" alt="Celebración de boda" loading="lazy" /><figcaption>01 — <span data-i18n="galleryCaption1">Nuestro comienzo</span></figcaption></figure><figure class="gallery-item gallery-two reveal"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1000&q=85" alt="Detalles florales de boda" loading="lazy" /><figcaption>02 — <span data-i18n="galleryCaption2">Cada detalle</span></figcaption></figure><figure class="gallery-item gallery-three reveal"><img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1000&q=85" alt="Pareja celebrando su boda" loading="lazy" /><figcaption>03 — <span data-i18n="galleryCaption3">Para siempre</span></figcaption></figure></div></section>
+
+    <section class="rsvp-section" id="rsvp"><div class="rsvp-decor rsvp-decor-left">✿</div><div class="rsvp-decor rsvp-decor-right">✿</div><span class="overline reveal" data-i18n="rsvpKicker">UNA INVITACIÓN DESDE EL CORAZÓN</span><h2 class="display reveal" data-i18n-html="rsvpTitle">Lo mejor de este día<br>será <em>compartirlo contigo.</em></h2><p class="body-copy reveal" data-i18n="rsvpCopy">Tu presencia hará que esta historia sea todavía más especial. Esperamos celebrar juntos.</p><form id="rsvpForm" class="rsvp-form reveal" novalidate>
+        <div class="rsvp-form-heading"><span class="rsvp-form-number">01 — RSVP</span><p data-i18n="formIntro">Por favor, completa tus datos para confirmar tu asistencia.</p></div>
+        <div class="rsvp-fields">
+          <div class="rsvp-field"><label for="guestName" data-i18n="formName">Nombre completo *</label><input id="guestName" name="guestName" type="text" autocomplete="name" maxlength="100" required placeholder="Nombre y apellido" data-i18n-placeholder="namePlaceholder" /></div>
+          <div class="rsvp-field"><label for="guestPhone" data-i18n="formPhone">Número de teléfono *</label><input id="guestPhone" name="guestPhone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" required placeholder="+503 7000 0000" /></div>
+          <fieldset class="rsvp-field rsvp-field-full"><legend data-i18n="formAttendance">¿Nos acompañarás? *</legend><div class="rsvp-options"><label class="rsvp-option"><input type="radio" name="attendance" value="yes" required checked /><span data-i18n="attending">Sí, asistiré</span></label><label class="rsvp-option"><input type="radio" name="attendance" value="no" /><span data-i18n="notAttending">No podré asistir</span></label></div></fieldset>
+          <div class="rsvp-field" id="guestCountField"><label for="guestCount" data-i18n="formGuests">Personas incluyéndote *</label><select id="guestCount" name="guestCount" required><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></div>
+          <fieldset class="rsvp-field" id="transportField"><legend data-i18n="formTransport">¿Necesitas transporte? *</legend><div class="rsvp-options"><label class="rsvp-option"><input type="radio" name="transport" value="yes" required /><span data-i18n="transportYes">Sí</span></label><label class="rsvp-option"><input type="radio" name="transport" value="no" checked /><span data-i18n="transportNo">No</span></label></div></fieldset>
+          <div class="rsvp-field rsvp-field-full" id="pickupField" hidden><label for="pickupLocation" data-i18n="formPickup">¿Desde qué zona necesitas transporte?</label><input id="pickupLocation" name="pickupLocation" type="text" maxlength="120" placeholder="Colonia o punto de referencia" data-i18n-placeholder="pickupPlaceholder" /></div>
+          <div class="rsvp-field rsvp-field-full"><label for="guestMessage" data-i18n="formMessage">Mensaje para los novios (opcional)</label><textarea id="guestMessage" name="guestMessage" rows="3" maxlength="500" placeholder="Escribe un mensaje especial..." data-i18n-placeholder="messagePlaceholder"></textarea></div>
+        </div>
+        <button type="submit" class="rsvp-submit"><span data-i18n="formSubmit">PREPARAR CONFIRMACIÓN</span><span aria-hidden="true">↗</span></button>
+        <p class="rsvp-disclaimer" data-i18n="formDisclaimer">Se abrirá tu correo con la confirmación preparada. Debes enviarlo para que llegue a los novios.</p>
+        <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </form><p class="rsvp-note" data-i18n="rsvpNote">Gracias por ser parte de nuestra historia.</p></section>
+  </main>
+  <footer class="footer"><span>MICHAEL <i>&</i> DANIELA</span><span>11 · 04 · 2027</span><a href="#home" data-i18n="backTop">VOLVER ARRIBA ↑</a></footer>
+  <button id="musicToggle" class="music-toggle" type="button" aria-label="Reproducir música" aria-pressed="false"><span class="music-icon" aria-hidden="true">♫</span><span class="music-text" data-i18n="musicOff">ACTIVAR MÚSICA</span><span class="music-waves" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  <audio id="backgroundMusic" src="b-music/wedding-song.mp3" loop preload="none"></audio>
+</body>
+</html>
