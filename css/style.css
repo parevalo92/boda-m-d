@@ -1,0 +1,232 @@
+/* ===== MICHOFER.SV — Estilos personalizados (versión estática) ===== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #0F172A;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(20,184,166,0.24), transparent 34%),
+    radial-gradient(circle at top right, rgba(255,107,74,0.16), transparent 28%),
+    linear-gradient(
+      180deg,
+      #F3F4F6 0%,
+      #F3F4F6 18%,
+      #DDF7F4 34%,
+      #B8EEE8 48%,
+      #57D3C8 63%,
+      #0D9488 78%,
+      #0F172A 100%
+    );
+  min-height: 100vh;
+}
+
+/* ===== CURSOR GLOW ===== */
+.cursor-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,148,136,0.12), transparent 60%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+/* ===== GLASS ===== */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(243,244,246,0.46));
+  border: 1px solid rgba(13,148,136,0.22);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+}
+
+/* ===== FLOATING ORBS ===== */
+.hero-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: rgba(13,148,136,0.2);
+  top: -100px; left: -150px;
+  animation: orbFloat1 14s ease-in-out infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: rgba(255,107,74,0.15);
+  bottom: -80px; right: -100px;
+  animation: orbFloat2 12s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.08); }
+}
+
+/* ===== HERO GRID PATTERN ===== */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(13,148,136,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,148,136,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== FLOATING DOWNLOAD BTN ===== */
+.floating-download {
+  position: fixed;
+  right: 20px; bottom: 20px;
+  z-index: 998;
+  padding: 14px 24px;
+  border-radius: 999px;
+  color: #F3F4F6;
+  background: linear-gradient(135deg, #FF6B4A, #e15a3c);
+  box-shadow: 0 10px 25px rgba(255,107,74,0.35);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.floating-download:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(255,107,74,0.45);
+}
+
+/* ===== LANGUAGE SWITCHER ===== */
+.langbuttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 12px 35px rgba(15,23,42,0.10), inset 0 1px 1px rgba(255,255,255,0.45);
+  transition: 0.35s ease;
+}
+.lang-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 52px;
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #64748B;
+  border-radius: 999px;
+  background: transparent;
+  transition: background 0.35s ease, color 0.35s ease, transform 0.25s ease;
+  font-family: 'Nunito', sans-serif;
+}
+.lang-btn:hover {
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+.lang-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #14B8A6 0%, #0D9488 45%, #0F766E 100%);
+  box-shadow: 0 10px 28px rgba(13,148,136,0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.lang-btn.active::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  transform: skewX(-25deg);
+  background: rgba(255,255,255,0.45);
+  animation: premiumShine 4s infinite;
+}
+@keyframes premiumShine {
+  0% { left: -70%; }
+  20% { left: 130%; }
+  100% { left: 130%; }
+}
+
+/* ===== HEADER ===== */
+#site-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+#site-header.scrolled {
+  background: rgba(15,23,42,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(20,184,166,0.24);
+}
+/* nav link colors depend on scroll state */
+#site-header .nav-link { color: rgba(15,23,42,0.74); }
+#site-header.scrolled .nav-link { color: #e5e7eb; }
+#site-header .nav-link:hover { color: #0D9488; }
+#site-header .menu-icon { color: #0F172A; }
+#site-header.scrolled .menu-icon { color: #f3f4f6; }
+
+/* ===== TRUST MARQUEE ===== */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F3F4F6; }
+::-webkit-scrollbar-thumb { background: #0D9488; border-radius: 999px; }
+
+/* ===== BLOG CONTENT ===== */
+.blog-content p { margin-bottom: 1.1rem; }
+.blog-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.1rem; }
+.blog-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.1rem; }
+.blog-content li { margin-bottom: 0.45rem; }
+.blog-content h2, .blog-content h3 { font-weight: 800; color: #0F172A; margin: 1.4rem 0 0.7rem; }
+.blog-content a { color: #0D9488; font-weight: 700; text-decoration: underline; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}

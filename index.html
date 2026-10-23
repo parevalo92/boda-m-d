@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiChofer — Tu chofer privado, cuando lo necesitas</title>
+  <meta name="description" content="Movilidad premium en El Salvador: viaje por plataforma y alquiler de vehículo con chofer incluido." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <meta property="og:title" content="MiChofer — Premium Mobility El Salvador" />
+  <meta property="og:image" content="og-image.png" />
+  <!-- Fuente Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow"></div>
+
+  <!-- Botón flotante de descarga -->
+  <a href="https://apps.apple.com/us/app/michofer/id6748980947?l=es-MX" target="_blank" rel="noopener noreferrer" class="floating-download">
+    <i data-lucide="download" style="width:18px;height:18px"></i>
+    <span data-i18n="floating.download">Descargar App</span>
+  </a>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <nav class="max-w-[1300px] mx-auto px-4 min-h-[86px] flex items-center justify-between">
+      <a href="#hero" data-scroll="hero" class="flex-shrink-0">
+        <img src="img/logo.png" alt="MiChofer Logo" class="w-[140px] object-contain" />
+      </a>
+      <button id="menu-toggle" class="md:hidden menu-icon" aria-label="Menú">
+        <i data-lucide="menu" style="width:28px;height:28px"></i>
+      </button>
+      <ul class="hidden md:flex items-center gap-5">
+        <li><a href="#hero" data-scroll="hero" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="#about" data-scroll="about" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.about">Sobre nosotros</a></li>
+        <li><a href="#services" data-scroll="services" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#rental" data-scroll="rental" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.rental">Alquiler</a></li>
+        <li><a href="#how-it-works" data-scroll="how-it-works" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.how">Cómo funciona</a></li>
+        <li><a href="#blog-preview" data-scroll="blog-preview" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="#contactus" data-scroll="contactus" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.contact">Contáctanos</a></li>
+        <li>
+          <div class="langbuttons">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-[1000] md:hidden bg-[rgba(15,23,42,0.97)] backdrop-blur-lg flex flex-col overflow-y-auto">
+    <div class="flex items-center justify-between px-4 min-h-[86px] flex-shrink-0">
+      <img src="img/logof.png" alt="MiChofer" class="w-[140px] object-contain" />
+      <button id="menu-close" aria-label="Cerrar"><i data-lucide="x" style="width:28px;height:28px;color:#f3f4f6"></i></button>
+    </div>
+    <ul class="flex flex-col items-center gap-6 pt-6 pb-10">
+      <li><a href="#hero" data-scroll="hero" class="text-gray-100 text-lg font-semibold" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="#about" data-scroll="about" class="text-gray-100 text-lg font-semibold" data-i18n="nav.about">Sobre nosotros</a></li>
+      <li><a href="#services" data-scroll="services" class="text-gray-100 text-lg font-semibold" data-i18n="nav.services">Servicios</a></li>
+      <li><a href="#rental" data-scroll="rental" class="text-gray-100 text-lg font-semibold" data-i18n="nav.rental">Alquiler</a></li>
+      <li><a href="#how-it-works" data-scroll="how-it-works" class="text-gray-100 text-lg font-semibold" data-i18n="nav.how">Cómo funciona</a></li>
+      <li><a href="#blog-preview" data-scroll="blog-preview" class="text-gray-100 text-lg font-semibold" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="#contactus" data-scroll="contactus" class="text-gray-100 text-lg font-semibold" data-i18n="nav.contact">Contáctanos</a></li>
+      <li>
+        <div class="langbuttons">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- ===== RESERVAR ===== -->
+    <section id="reservar" class="relative pt-[120px] pb-10 overflow-hidden">
+      <div class="max-w-[1300px] mx-auto px-4 relative z-[2]">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4 reveal">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="inline-block px-3 py-1 rounded-full bg-[rgba(13,148,136,0.12)] text-[#0D9488] text-xs font-bold tracking-[0.12em] uppercase" data-i18n="booking.eyebrow">Reserva en línea</span>
+            <h2 class="text-[clamp(1.6rem,3.4vw,2.4rem)] font-extrabold text-[#0F172A] tracking-[-0.02em]" data-i18n="booking.title">Agenda tu viaje</h2>
+          </div>
+          <a href="tel:79333349" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[rgba(13,148,136,0.1)] border border-[rgba(13,148,136,0.25)] text-[#0D9488] font-extrabold text-sm hover:bg-[rgba(13,148,136,0.18)] transition-colors">
+            <i data-lucide="phone-call" style="width:18px;height:18px;flex-shrink:0"></i>
+            <span data-i18n="booking.callCenter">Call center</span>
+            <span>7933-3349</span>
+          </a>
+        </div>
+        <form id="booking-form" class="bg-white rounded-[26px] shadow-[0_24px_70px_-20px_rgba(13,148,136,0.4)] border border-[rgba(13,148,136,0.14)] p-3 sm:p-4 reveal">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+          <!-- Fila 1 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.service">Servicio</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="car" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <select id="service-select" name="Servicio" required class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none cursor-pointer">
+                  <option value="" disabled selected data-i18n-opt="booking.servicePlaceholder">Selecciona</option>
+                  <option data-i18n-opt="booking.serviceOpt1">Viaje por plataforma</option>
+                  <option data-i18n-opt="booking.serviceOpt2">Alquiler de vehículo</option>
+                  <option data-i18n-opt="booking.serviceOpt3">MiChofer — tu chofer en tu carro</option>
+                </select>
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.vehicleType">Tipo de vehículo</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="car-front" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <select name="Tipo de vehículo" required class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none cursor-pointer">
+                  <option value="" disabled selected data-i18n-opt="booking.vehicleTypePlaceholder">Selecciona</option>
+                  <option value="SEDAN">SEDAN</option>
+                  <option value="SUV">SUV</option>
+                  <option value="SUV XL">SUV XL</option>
+                </select>
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.location">Inicio de viaje</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="map-pin" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="Inicio de viaje" type="text" required data-i18n-ph="booking.locationPlaceholder" placeholder="Dirección de inicio" class="w-full bg-transparent text-sm text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none" />
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.tripEnd">Fin de viaje</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="flag" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <select id="trip-end-select" name="Fin de viaje" required class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none cursor-pointer">
+                  <option value="" disabled selected data-i18n-opt="booking.tripEndPlaceholder">Selecciona</option>
+                  <option value="Viaje sin destino" data-i18n-opt="booking.tripEndOpt1">Viaje sin destino</option>
+                  <option value="Dirección de fin del viaje" data-i18n-opt="booking.tripEndOpt2">Dirección de fin del viaje</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Duración del alquiler (condicional) -->
+          <div id="duration-wrap" class="hidden mt-2">
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.duration">Duración del alquiler</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="timer" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <select id="duration-select" name="Duración del alquiler" disabled class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none cursor-pointer">
+                  <option value="" disabled selected data-i18n-opt="booking.durationPlaceholder">Selecciona</option>
+                  <option value="1h">1h</option>
+                  <option value="2h">2h</option>
+                  <option value="4h">4h</option>
+                  <option value="6h">6h</option>
+                  <option value="8h o más" data-i18n-opt="booking.durationOpt8">8h o más</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Dirección de fin del viaje (condicional) -->
+          <div id="end-address-wrap" class="hidden mt-2">
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.endAddress">Dirección de fin del viaje</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="map-pin" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input id="end-address-input" name="Dirección de fin del viaje" type="text" disabled data-i18n-ph="booking.endAddressPlaceholder" placeholder="Dirección y ciudad de destino" class="w-full bg-transparent text-sm text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none" />
+              </div>
+            </div>
+          </div>
+          <!-- Fila 2 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-2 pt-2 border-t border-[rgba(13,148,136,0.1)]">
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.date">Fecha</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="calendar" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="Fecha" type="date" required class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none" />
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.time">Hora</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="clock" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="Hora" type="time" required class="w-full bg-transparent text-sm text-[#0F172A] focus:outline-none" />
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.name">Nombre</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="user" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="Nombre" type="text" required data-i18n-ph="booking.namePlaceholder" placeholder="Tu nombre completo" class="w-full bg-transparent text-sm text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none" />
+              </div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.phone">Teléfono / WhatsApp</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="phone" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="WhatsApp" type="tel" required data-i18n-ph="booking.phonePlaceholder" placeholder="Ej. 7519 9218" class="w-full bg-transparent text-sm text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none" />
+              </div>
+            </div>
+          </div>
+          <!-- Fila 3 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
+            <div class="rounded-2xl px-4 py-3 border border-transparent hover:border-[rgba(13,148,136,0.18)] hover:bg-[rgba(13,148,136,0.04)] transition-colors">
+              <label class="block text-xs font-bold text-[#0F172A] mb-1.5" data-i18n="booking.email">Correo (opcional)</label>
+              <div class="flex items-center gap-2">
+                <i data-lucide="mail" style="width:18px;height:18px;color:#0D9488;flex-shrink:0"></i>
+                <input name="Correo" type="email" data-i18n-ph="booking.emailPlaceholder" placeholder="tucorreo@email.com" class="w-full bg-transparent text-sm text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none" />
+              </div>
+            </div>
+            <div class="flex items-stretch lg:col-span-3">
+              <button type="submit" class="w-full px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF6B4A] to-[#e15a3c] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-60" data-i18n="booking.submit">Reservar viaje</button>
+            </div>
+          </div>
+          <div id="booking-success" class="hidden flex items-center gap-2 mt-3 px-4 py-3 rounded-2xl bg-[rgba(13,148,136,0.1)] border border-[rgba(13,148,136,0.25)] text-[#0D9488] text-sm font-semibold">
+            <i data-lucide="check-circle-2" style="width:18px;height:18px;flex-shrink:0"></i>
+            <span data-i18n="booking.success">¡Gracias! Recibimos tu solicitud y te contactaremos pronto.</span>
+          </div>
+          <div id="booking-error" class="hidden flex items-center gap-2 mt-3 px-4 py-3 rounded-2xl bg-[rgba(255,107,74,0.1)] border border-[rgba(255,107,74,0.3)] text-[#e15a3c] text-sm font-semibold">
+            <i data-lucide="alert-triangle" style="width:18px;height:18px;flex-shrink:0"></i>
+            <span data-i18n="booking.error">No se pudo enviar. Verifica tu conexión o inténtalo más tarde.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="relative flex items-center pt-10 pb-20 overflow-hidden">
+      <div class="hero-bg-orb orb-1"></div>
+      <div class="hero-bg-orb orb-2"></div>
+      <div class="hero-grid"></div>
+      <div class="max-w-[1300px] mx-auto px-4 relative z-[2] w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div class="reveal">
+            <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="hero.eyebrow">Premium Mobility · El Salvador</span>
+            <h1 class="text-[clamp(2.4rem,5vw,5rem)] leading-[0.96] tracking-[-0.04em] text-[#0F172A] font-extrabold max-w-[700px]" data-i18n="hero.title">Tu chofer privado, cuando lo necesitas</h1>
+            <p class="mt-4 text-[clamp(1rem,2vw,1.25rem)] text-[rgba(15,23,42,0.72)] max-w-[600px]" data-i18n="hero.subtitle">Alquila un vehículo con chofer incluido para moverte con total libertad en El Salvador</p>
+            <ul class="grid gap-2.5 mt-6">
+              <li class="flex items-start gap-2 text-[#0F172A] text-[1.02rem]"><span class="text-[#0D9488] mt-0.5">✅</span><span data-i18n="hero.list1">Alquiler por horas con chofer incluido</span></li>
+              <li class="flex items-start gap-2 text-[#0F172A] text-[1.02rem]"><span class="text-[#0D9488] mt-0.5">✅</span><span data-i18n="hero.list2">Viajes de punto A a punto B (One Way)</span></li>
+              <li class="flex items-start gap-2 text-[#0F172A] text-[1.02rem]"><span class="text-[#0D9488] mt-0.5">✅</span><span data-i18n="hero.list3">MiChofer — tu chofer en tu propio vehículo</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a href="https://apps.apple.com/us/app/michofer/id6748980947?l=es-MX" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FF6B4A] to-[#e15a3c] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all" data-i18n="hero.cta1">Reservar Ahora</a>
+              <a href="#services" data-scroll="services" class="px-8 py-3.5 rounded-full border-2 border-[#0D9488] text-[#0D9488] font-bold text-sm hover:bg-[#0D9488] hover:text-white transition-all" data-i18n="hero.cta2">Ver Servicios</a>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-10 max-w-[500px]">
+              <div class="glass rounded-[20px] p-4 text-center reveal"><h3 class="text-2xl font-extrabold text-[#0D9488]" data-counter="24" data-suffix="/7">0/7</h3><p class="text-xs text-[rgba(15,23,42,0.62)] mt-1 font-medium" data-i18n="hero.stat1">Atención 24/7</p></div>
+              <div class="glass rounded-[20px] p-4 text-center reveal"><h3 class="text-2xl font-extrabold text-[#0D9488]" data-counter="100" data-suffix="%">0%</h3><p class="text-xs text-[rgba(15,23,42,0.62)] mt-1 font-medium" data-i18n="hero.stat2">Servicio personalizado</p></div>
+              <div class="glass rounded-[20px] p-4 text-center reveal"><h3 class="text-2xl font-extrabold text-[#0D9488]" data-counter="365" data-suffix="">0</h3><p class="text-xs text-[rgba(15,23,42,0.62)] mt-1 font-medium" data-i18n="hero.stat3">Disponibilidad anual</p></div>
+            </div>
+          </div>
+          <div class="reveal hidden lg:block">
+            <div class="glass rounded-[28px] p-3 relative overflow-hidden">
+              <div class="absolute -top-1/3 -right-1/3 w-[400px] h-[400px] rounded-full bg-[rgba(13,148,136,0.15)] blur-[80px]"></div>
+              <div class="relative aspect-[4/5] rounded-[22px] overflow-hidden">
+                <img src="img/hero.png" alt="MiChofer App" class="absolute inset-0 w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BARRA DE MARCAS ===== -->
+    <section class="py-6">
+      <div class="max-w-[1300px] mx-auto px-4">
+        <div class="glass rounded-[20px] py-4 px-6 overflow-hidden reveal">
+          <div class="flex items-center gap-8 overflow-hidden">
+            <div class="marquee-track flex items-center gap-8 whitespace-nowrap">
+              <div class="flex items-center gap-8">
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.1">Choferes verificados</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.2">Vehículos modernos</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.3">Pago seguro con tarjeta</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.4">Reservas en minutos</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.5">Atención personalizada</span></span>
+              </div>
+              <div class="flex items-center gap-8">
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.1">Choferes verificados</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.2">Vehículos modernos</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.3">Pago seguro con tarjeta</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.4">Reservas en minutos</span></span>
+                <span class="text-[rgba(15,23,42,0.6)] font-semibold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#0D9488]"></span><span data-i18n="brands.5">Atención personalizada</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section id="about" class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal">
+          <div class="glass rounded-[28px] p-3">
+            <div class="relative aspect-[4/3] rounded-[22px] overflow-hidden">
+              <img src="img/about-image.png" alt="Sobre MiChofer" class="absolute inset-0 w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="about.eyebrow">Sobre nosotros</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold mb-4" data-i18n="about.title">Una nueva forma de movilizarte</h2>
+          <p class="text-[rgba(15,23,42,0.72)] text-[1.05rem] leading-[1.7] mb-8" data-i18n="about.text">Somos una empresa 100% salvadoreña...</p>
+          <div class="grid gap-4">
+            <div class="glass rounded-[18px] p-5 flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center flex-shrink-0"><i data-lucide="user-check" style="width:22px;height:22px;color:#0D9488"></i></div>
+              <div><h3 class="font-bold text-[#0F172A] mb-1" data-i18n="about.feature1.title">Nuestros choferes</h3><p class="text-sm text-[rgba(15,23,42,0.62)]" data-i18n="about.feature1.text"></p></div>
+            </div>
+            <div class="glass rounded-[18px] p-5 flex gap-4 items-start">
+              <div class="w-11 h-11 rounded-xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center flex-shrink-0"><i data-lucide="car" style="width:22px;height:22px;color:#0D9488"></i></div>
+              <div><h3 class="font-bold text-[#0F172A] mb-1" data-i18n="about.feature2.title">Nuestros vehículos</h3><p class="text-sm text-[rgba(15,23,42,0.62)]" data-i18n="about.feature2.text"></p></div>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-8">
+            <a href="https://www.facebook.com/michofersv/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[rgba(13,148,136,0.1)] border border-[rgba(13,148,136,0.2)] flex items-center justify-center text-[#0D9488] hover:bg-[#0D9488] hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/michofer.sv/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[rgba(13,148,136,0.1)] border border-[rgba(13,148,136,0.2)] flex items-center justify-center text-[#0D9488] hover:bg-[#0D9488] hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.tiktok.com/@michofer.sv" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-[rgba(13,148,136,0.1)] border border-[rgba(13,148,136,0.2)] flex items-center justify-center text-[#0D9488] hover:bg-[#0D9488] hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.3 8.3 0 0 0 4.76 1.5v-3.5a4.82 4.82 0 0 1-1-.06z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ALQUILER (DESTACADA) ===== -->
+    <section id="rental" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(13,148,136,0.08) 0%, rgba(13,148,136,0.18) 50%, rgba(20,184,166,0.12) 100%);">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-[rgba(13,148,136,0.1)] blur-[120px]"></div>
+      <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-[rgba(255,107,74,0.08)] blur-[100px]"></div>
+      <div class="max-w-[1300px] mx-auto px-4 relative z-[2]">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          <div class="reveal">
+            <span class="inline-block mb-3 px-4 py-1.5 rounded-full bg-[rgba(13,148,136,0.15)] text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488] border border-[rgba(13,148,136,0.25)]" data-i18n="rental.eyebrow">Alquiler Premium con Chofer</span>
+            <h2 class="text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.02] tracking-[-0.04em] text-[#0F172A] font-extrabold mb-3" data-i18n="rental.title">¿Necesitas realizar varias vueltas?</h2>
+            <p class="text-xl text-[#0D9488] font-bold mb-8" data-i18n="rental.subtitle">Alquila tu carro con chofer incluido</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div class="glass rounded-[22px] p-5 hover:shadow-lg transition-shadow group"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D9488] to-[#14B8A6] flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform"><i data-lucide="circle-stop" style="width:24px;height:24px"></i></div><h3 class="font-bold text-[#0F172A] text-[1.05rem] mb-1" data-i18n="rental.adv1.title">Múltiples paradas</h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="rental.adv1.text"></p></div>
+              <div class="glass rounded-[22px] p-5 hover:shadow-lg transition-shadow group"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D9488] to-[#14B8A6] flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform"><i data-lucide="timer" style="width:24px;height:24px"></i></div><h3 class="font-bold text-[#0F172A] text-[1.05rem] mb-1" data-i18n="rental.adv2.title">Chofer te espera</h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="rental.adv2.text"></p></div>
+              <div class="glass rounded-[22px] p-5 hover:shadow-lg transition-shadow group"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D9488] to-[#14B8A6] flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform"><i data-lucide="user" style="width:24px;height:24px"></i></div><h3 class="font-bold text-[#0F172A] text-[1.05rem] mb-1" data-i18n="rental.adv3.title">Pide el mismo conductor</h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="rental.adv3.text"></p></div>
+              <div class="glass rounded-[22px] p-5 hover:shadow-lg transition-shadow group"><div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D9488] to-[#14B8A6] flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform"><i data-lucide="clock" style="width:24px;height:24px"></i></div><h3 class="font-bold text-[#0F172A] text-[1.05rem] mb-1" data-i18n="rental.adv4.title">Alquila por horas</h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="rental.adv4.text"></p></div>
+            </div>
+            <div class="rounded-[22px] border-2 border-[rgba(255,107,74,0.3)] bg-[rgba(255,107,74,0.06)] p-5">
+              <div class="flex items-center gap-2 mb-3"><i data-lucide="alert-triangle" style="width:20px;height:20px;color:#FF6B4A"></i><span class="font-bold text-[#0F172A] text-sm" data-i18n="rental.infoTitle">Información importante</span></div>
+              <ul class="grid gap-2.5">
+                <li class="flex items-start gap-2 text-sm text-[rgba(15,23,42,0.72)]"><span class="text-[#FF6B4A] mt-0.5 flex-shrink-0"><i data-lucide="timer" style="width:16px;height:16px"></i></span><span data-i18n="rental.info1"></span></li>
+                <li class="flex items-start gap-2 text-sm text-[rgba(15,23,42,0.72)]"><span class="text-[#FF6B4A] mt-0.5 flex-shrink-0"><i data-lucide="credit-card" style="width:16px;height:16px"></i></span><span data-i18n="rental.info2"></span></li>
+                <li class="flex items-start gap-2 text-sm text-[rgba(15,23,42,0.72)]"><span class="text-[#FF6B4A] mt-0.5 flex-shrink-0"><i data-lucide="phone-call" style="width:16px;height:16px"></i></span><span><span data-i18n="rental.info3pre">Fuera de San Salvador, llama/WhatsApp al </span><a href="https://wa.me/50375199218" target="_blank" rel="noopener noreferrer" class="text-[#0D9488] font-bold underline">7519 9218</a></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="reveal hidden lg:block">
+            <div class="glass rounded-[28px] p-3"><div class="relative aspect-square rounded-[22px] overflow-hidden"><img src="img/service-3.png" alt="Alquiler por horas" class="absolute inset-0 w-full h-full object-cover" /></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section id="services" class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4">
+        <div class="reveal mb-12">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="services.eyebrow">Nuestros servicios</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold" data-i18n="services.title">Servicios diseñados para cada necesidad</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="glass rounded-[28px] overflow-hidden reveal hover:shadow-lg transition-shadow ring-2 ring-[#0D9488]/30">
+            <div class="relative aspect-[4/3]"><img src="img/service-3.png" alt="Alquiler por horas" class="absolute inset-0 w-full h-full object-cover" /><div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0D9488] text-white text-xs font-bold">⭐ <span data-i18n="services.popular">Más popular</span></div></div>
+            <div class="p-6"><h3 class="font-bold text-[#0F172A] text-lg mb-2" data-i18n="services.s1.title">Alquiler por horas</h3><p class="text-sm text-[rgba(15,23,42,0.62)] mb-3" data-i18n="services.s1.text"></p><a href="#how-it-works" data-scroll="how-it-works" class="inline-flex items-center gap-1 text-[#0D9488] font-bold text-sm"><span data-i18n="services.link">Conoce más</span> <i data-lucide="chevron-right" style="width:16px;height:16px"></i></a></div>
+          </article>
+          <article class="glass rounded-[28px] overflow-hidden reveal hover:shadow-lg transition-shadow">
+            <div class="relative aspect-[4/3]"><img src="img/service-1.png" alt="Un viaje" class="absolute inset-0 w-full h-full object-cover" /></div>
+            <div class="p-6"><h3 class="font-bold text-[#0F172A] text-lg mb-2" data-i18n="services.s2.title">Un viaje (One Way)</h3><p class="text-sm text-[rgba(15,23,42,0.62)] mb-3" data-i18n="services.s2.text"></p><a href="#how-it-works" data-scroll="how-it-works" class="inline-flex items-center gap-1 text-[#0D9488] font-bold text-sm"><span data-i18n="services.link">Conoce más</span> <i data-lucide="chevron-right" style="width:16px;height:16px"></i></a></div>
+          </article>
+          <article class="glass rounded-[28px] overflow-hidden reveal hover:shadow-lg transition-shadow">
+            <div class="relative aspect-[4/3]"><img src="img/service-4.png" alt="MiChofer" class="absolute inset-0 w-full h-full object-cover" /></div>
+            <div class="p-6"><h3 class="font-bold text-[#0F172A] text-lg mb-2" data-i18n="services.s3.title">MiChofer — Tu chofer en tu carro</h3><p class="text-sm text-[rgba(15,23,42,0.62)] mb-3" data-i18n="services.s3.text"></p><a href="#how-it-works" data-scroll="how-it-works" class="inline-flex items-center gap-1 text-[#0D9488] font-bold text-sm"><span data-i18n="services.link">Conoce más</span> <i data-lucide="chevron-right" style="width:16px;height:16px"></i></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONFIANZA ===== -->
+    <section class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4">
+        <div class="text-center max-w-[820px] mx-auto mb-12 reveal">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="trust.eyebrow">Confianza & Seguridad</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold mb-4" data-i18n="trust.title">Confianza y seguridad en cada viaje</h2>
+          <p class="text-[rgba(15,23,42,0.72)] text-[1.05rem] leading-[1.7] max-w-[760px] mx-auto" data-i18n="trust.text"></p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="glass rounded-[28px] p-7 text-center reveal hover:shadow-lg hover:-translate-y-1 transition-all"><div class="w-14 h-14 rounded-2xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center text-[#0D9488] mx-auto mb-4"><i data-lucide="shield" style="width:28px;height:28px"></i></div><h3 class="font-bold text-[#0F172A] mb-2" data-i18n="trust.c1.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="trust.c1.text"></p></article>
+          <article class="glass rounded-[28px] p-7 text-center reveal hover:shadow-lg hover:-translate-y-1 transition-all"><div class="w-14 h-14 rounded-2xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center text-[#0D9488] mx-auto mb-4"><i data-lucide="wrench" style="width:28px;height:28px"></i></div><h3 class="font-bold text-[#0F172A] mb-2" data-i18n="trust.c2.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="trust.c2.text"></p></article>
+          <article class="glass rounded-[28px] p-7 text-center reveal hover:shadow-lg hover:-translate-y-1 transition-all"><div class="w-14 h-14 rounded-2xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center text-[#0D9488] mx-auto mb-4"><i data-lucide="graduation-cap" style="width:28px;height:28px"></i></div><h3 class="font-bold text-[#0F172A] mb-2" data-i18n="trust.c3.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="trust.c3.text"></p></article>
+          <article class="glass rounded-[28px] p-7 text-center reveal hover:shadow-lg hover:-translate-y-1 transition-all"><div class="w-14 h-14 rounded-2xl bg-[rgba(13,148,136,0.12)] flex items-center justify-center text-[#0D9488] mx-auto mb-4"><i data-lucide="shield-check" style="width:28px;height:28px"></i></div><h3 class="font-bold text-[#0F172A] mb-2" data-i18n="trust.c4.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="trust.c4.text"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CÓMO FUNCIONA ===== -->
+    <section id="how-it-works" class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4">
+        <div class="reveal mb-12">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="how.eyebrow">Cómo funciona</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold" data-i18n="how.title">Una experiencia guiada por tecnología y servicio</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+          <div class="grid gap-6">
+            <article class="glass rounded-[22px] p-6 reveal"><span class="text-[2.5rem] font-extrabold text-[rgba(13,148,136,0.18)] leading-none">01</span><h3 class="font-bold text-[#0F172A] text-lg mt-2 mb-1" data-i18n="how.s1.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="how.s1.text"></p></article>
+            <article class="glass rounded-[22px] p-6 reveal"><span class="text-[2.5rem] font-extrabold text-[rgba(13,148,136,0.18)] leading-none">02</span><h3 class="font-bold text-[#0F172A] text-lg mt-2 mb-1" data-i18n="how.s2.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="how.s2.text"></p></article>
+            <article class="glass rounded-[22px] p-6 reveal"><span class="text-[2.5rem] font-extrabold text-[rgba(13,148,136,0.18)] leading-none">03</span><h3 class="font-bold text-[#0F172A] text-lg mt-2 mb-1" data-i18n="how.s3.title"></h3><p class="text-sm text-[rgba(15,23,42,0.6)] leading-relaxed" data-i18n="how.s3.text"></p></article>
+          </div>
+          <div class="reveal lg:sticky lg:top-[120px]">
+            <div class="glass rounded-[28px] p-3"><div class="relative aspect-[16/9] rounded-[22px] overflow-hidden"><img src="img/schedule.png" alt="Cómo funciona MiChofer" class="absolute inset-0 w-full h-full object-cover" /></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG ===== -->
+    <section id="blog-preview" class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4">
+        <div class="reveal mb-12">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="blog.eyebrow">Blog</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold" data-i18n="blog.title">Noticias, novedades y contenido editorial</h2>
+        </div>
+        <div id="blog-preview-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        <div class="text-center mt-12 reveal">
+          <a href="blog.html" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0D9488] to-[#14B8A6] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"><span data-i18n="blog.viewAll">Ver todo el blog</span> <i data-lucide="chevron-right" style="width:18px;height:18px"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contactus" class="py-24">
+      <div class="max-w-[1300px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="glass rounded-[28px] p-8 reveal">
+          <span class="inline-block mb-3 text-xs font-bold tracking-[0.16em] uppercase text-[#0D9488]" data-i18n="contact.eyebrow">Contáctanos</span>
+          <h2 class="text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.04] tracking-[-0.03em] text-[#0F172A] font-extrabold mb-6" data-i18n="contact.title">Hablemos</h2>
+          <ul class="grid gap-4">
+            <li class="flex items-center gap-3"><i data-lucide="mail" style="width:20px;height:20px;color:#0D9488"></i><span class="text-[rgba(15,23,42,0.72)]">info@michofer.com</span></li>
+            <li class="flex items-center gap-3"><i data-lucide="phone" style="width:20px;height:20px;color:#0D9488"></i><span class="text-[rgba(15,23,42,0.72)]">+503 7258 9503</span></li>
+            <li class="flex items-center gap-3"><i data-lucide="clock" style="width:20px;height:20px;color:#0D9488"></i><span class="text-[rgba(15,23,42,0.72)]" data-i18n="contact.schedule">Lunes a domingo</span></li>
+            <li class="flex items-center gap-3"><i data-lucide="globe" style="width:20px;height:20px;color:#0D9488"></i><span class="text-[rgba(15,23,42,0.72)]">www.michofer.sv</span></li>
+          </ul>
+        </div>
+        <form action="https://formbold.com/s/oYAKv" method="POST" class="glass rounded-[28px] p-8 reveal grid gap-4">
+          <input type="text" name="name" required data-i18n-ph="contact.name" placeholder="Tu nombre" class="w-full px-5 py-3.5 rounded-2xl bg-[rgba(255,255,255,0.7)] border border-[rgba(13,148,136,0.2)] text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none focus:ring-2 focus:ring-[#0D9488]/30 transition" />
+          <input type="email" name="email" required data-i18n-ph="contact.email" placeholder="Tu email" class="w-full px-5 py-3.5 rounded-2xl bg-[rgba(255,255,255,0.7)] border border-[rgba(13,148,136,0.2)] text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none focus:ring-2 focus:ring-[#0D9488]/30 transition" />
+          <textarea name="message" required rows="5" data-i18n-ph="contact.message" placeholder="Tu mensaje" class="w-full px-5 py-3.5 rounded-2xl bg-[rgba(255,255,255,0.7)] border border-[rgba(13,148,136,0.2)] text-[#0F172A] placeholder:text-[rgba(15,23,42,0.4)] focus:outline-none focus:ring-2 focus:ring-[#0D9488]/30 transition resize-none"></textarea>
+          <button type="submit" class="w-full px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0D9488] to-[#14B8A6] text-white font-bold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all" data-i18n="contact.submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#0F172A] pt-16 pb-8">
+    <div class="max-w-[1300px] mx-auto px-4">
+      <div class="glass rounded-[28px] p-8 lg:p-12" style="background: rgba(15,23,42,0.6); border-color: rgba(20,184,166,0.18);">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div class="lg:col-span-2">
+            <img src="img/logof.png" alt="MiChofer" class="w-[140px] mb-4" />
+            <p class="text-gray-400 text-xs mb-2" data-i18n="footer.copy"></p>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4" data-i18n="footer.desc"></p>
+            <div class="flex gap-3">
+              <a href="https://www.facebook.com/michofersv/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="https://www.instagram.com/michofer.sv/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="https://www.tiktok.com/@michofer.sv" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.3 8.3 0 0 0 4.76 1.5v-3.5a4.82 4.82 0 0 1-1-.06z"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.policies">Políticas</h4>
+            <div class="grid gap-2">
+              <span class="text-gray-400 text-sm hover:text-[#14B8A6] transition cursor-pointer" data-i18n="footer.policyUsers">Políticas para Usuarios</span>
+              <span class="text-gray-400 text-sm hover:text-[#14B8A6] transition cursor-pointer" data-i18n="footer.policyDrivers">Políticas para Conductores</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.nav">Navegación</h4>
+            <div class="grid gap-2">
+              <a href="#hero" data-scroll="hero" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.home">Inicio</a>
+              <a href="#services" data-scroll="services" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.services">Servicios</a>
+              <a href="#blog-preview" data-scroll="blog-preview" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.blog">Blog</a>
+              <a href="#contactus" data-scroll="contactus" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.contact">Contáctanos</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.download">Descarga la app</h4>
+            <p class="text-gray-400 text-sm mb-3" data-i18n="footer.downloadTitle">Descarga nuestra app</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://apps.apple.com/us/app/michofer/id6748980947?l=es-MX" target="_blank" rel="noopener noreferrer"><img src="img/appstorelogo.png" alt="App Store" class="h-10 object-contain" /></a>
+              <a href="https://play.google.com/store/apps/details?id=product.customer.michofer&hl=en" target="_blank" rel="noopener noreferrer"><img src="img/playstorelogo.png" alt="Google Play" class="h-10 object-contain" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-gray-500 text-xs mt-6" data-i18n="footer.copy"></p>
+    </div>
+  </footer>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

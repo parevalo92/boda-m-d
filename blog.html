@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — MiChofer</title>
+  <meta name="description" content="Noticias, novedades y consejos de movilidad premium en El Salvador." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <meta property="og:title" content="Blog — MiChofer" />
+  <meta property="og:image" content="og-image.png" />
+  <!-- Fuente Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="blog-page">
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow"></div>
+
+  <!-- Header -->
+  <header id="site-header" class="scrolled">
+    <nav class="max-w-[1300px] mx-auto px-4 min-h-[86px] flex items-center justify-between">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/logo.png" alt="MiChofer Logo" class="w-[140px] object-contain" />
+      </a>
+      <ul class="hidden md:flex items-center gap-5">
+        <li><a href="index.html#hero" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.home">Inicio</a></li>
+        <li><a href="index.html#about" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.about">Sobre nosotros</a></li>
+        <li><a href="index.html#services" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="index.html#rental" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.rental">Alquiler</a></li>
+        <li><a href="blog.html" class="nav-link text-[0.95rem] font-bold text-[#0D9488]" data-i18n="nav.blog">Blog</a></li>
+        <li><a href="index.html#contactus" class="nav-link text-[0.95rem] font-medium transition-colors" data-i18n="nav.contact">Contáctanos</a></li>
+        <li>
+          <div class="langbuttons">
+            <button class="lang-btn active" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </li>
+      </ul>
+      <!-- Móvil: volver + idioma -->
+      <div class="flex md:hidden items-center gap-3">
+        <div class="langbuttons">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="index.html" class="menu-icon" aria-label="Inicio"><i data-lucide="home" style="width:24px;height:24px"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero del blog -->
+    <section class="relative pt-[130px] pb-10 overflow-hidden">
+      <div class="hero-bg-orb orb-1"></div>
+      <div class="hero-bg-orb orb-2"></div>
+      <div class="max-w-[900px] mx-auto px-4 relative z-[2] text-center">
+        <span class="inline-block px-3 py-1 rounded-full bg-[rgba(13,148,136,0.12)] text-[#0D9488] text-xs font-bold tracking-[0.12em] uppercase mb-4" data-i18n="blog.eyebrow">Blog</span>
+        <h1 class="text-[clamp(2rem,5vw,3.2rem)] font-extrabold text-[#0F172A] tracking-[-0.02em] mb-4" data-i18n="blog.heading">Blog MiChofer</h1>
+        <p class="text-[rgba(15,23,42,0.7)] text-lg max-w-[640px] mx-auto" data-i18n="blog.subheading">Noticias, novedades y consejos de movilidad premium en El Salvador.</p>
+        <a href="index.html" class="inline-flex items-center gap-2 mt-6 text-[#0D9488] font-bold hover:gap-3 transition-all">
+          <i data-lucide="arrow-left" style="width:18px;height:18px"></i>
+          <span data-i18n="blog.backHome">Volver al inicio</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Lista de posts -->
+    <section class="pb-24">
+      <div class="max-w-[900px] mx-auto px-4">
+        <div id="blog-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#0F172A] pt-16 pb-8">
+    <div class="max-w-[1300px] mx-auto px-4">
+      <div class="glass rounded-[28px] p-8 lg:p-12" style="background: rgba(15,23,42,0.6); border-color: rgba(20,184,166,0.18);">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div class="lg:col-span-2">
+            <img src="img/logof.png" alt="MiChofer" class="w-[140px] mb-4" />
+            <p class="text-gray-400 text-xs mb-2" data-i18n="footer.copy"></p>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4" data-i18n="footer.desc"></p>
+            <div class="flex gap-3">
+              <a href="https://www.facebook.com/michofersv/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="https://www.instagram.com/michofer.sv/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="https://www.tiktok.com/@michofer.sv" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-[rgba(20,184,166,0.3)] flex items-center justify-center text-gray-400 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.3 8.3 0 0 0 4.76 1.5v-3.5a4.82 4.82 0 0 1-1-.06z"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.policies">Políticas</h4>
+            <div class="grid gap-2">
+              <span class="text-gray-400 text-sm hover:text-[#14B8A6] transition cursor-pointer" data-i18n="footer.policyUsers">Políticas para Usuarios</span>
+              <span class="text-gray-400 text-sm hover:text-[#14B8A6] transition cursor-pointer" data-i18n="footer.policyDrivers">Políticas para Conductores</span>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.nav">Navegación</h4>
+            <div class="grid gap-2">
+              <a href="index.html#hero" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.home">Inicio</a>
+              <a href="index.html#services" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.services">Servicios</a>
+              <a href="blog.html" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.blog">Blog</a>
+              <a href="index.html#contactus" class="text-gray-400 text-sm hover:text-[#14B8A6] transition text-left" data-i18n="nav.contact">Contáctanos</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-gray-200 font-bold mb-4 text-sm" data-i18n="footer.download">Descarga la app</h4>
+            <p class="text-gray-400 text-sm mb-3" data-i18n="footer.downloadTitle">Descarga nuestra app</p>
+            <div class="flex flex-col gap-3">
+              <a href="https://apps.apple.com/us/app/michofer/id6748980947?l=es-MX" target="_blank" rel="noopener noreferrer"><img src="img/appstorelogo.png" alt="App Store" class="h-10 object-contain" /></a>
+              <a href="https://play.google.com/store/apps/details?id=product.customer.michofer&hl=en" target="_blank" rel="noopener noreferrer"><img src="img/playstorelogo.png" alt="Google Play" class="h-10 object-contain" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-gray-500 text-xs mt-6" data-i18n="footer.copy"></p>
+    </div>
+  </footer>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
