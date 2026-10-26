@@ -1,58 +1,92 @@
-/* Michael & Daniela — configure ceremony date, media and RSVP in this project. */
-const WEDDING_DATE = '2027-04-11T16:00:00-06:00'; // El Salvador time, 4 PM (editable)
-const translations = {
-  es: {navStory:'Nuestra historia',navDetails:'La celebración',navGallery:'Momentos',navRsvp:'Confirmar asistencia',heroEyebrow:'UNA HISTORIA PARA SIEMPRE · 11 ABRIL 2027',heroPrelude:'Con todo nuestro amor',heroSubtitle:'El comienzo de nuestro para siempre.',discover:'Descubre nuestra historia',heroLocation:'EL SALVADOR · 2027',scroll:'DESLIZA PARA EXPLORAR',storyKicker:'CAPÍTULO UNO — NOSOTROS',storyTitle:'Dos almas.<br><em>Una historia.</em>',storyBody:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis neque sed arcu tempus luctus. Cada encuentro, cada sonrisa y cada pequeño instante nos ha traído hasta aquí.',storyCaption:'Un amor que florece',quoteOverline:'EL AMOR ESTÁ EN LOS DETALLES',quoteText:'“Y de pronto, todos los caminos<br>nos llevaron <em>al mismo lugar.</em>”',detailsKicker:'CAPÍTULO DOS — EL GRAN DÍA',detailsTitle:'Una fecha.<br><em>Mil emociones.</em>',detailsIntro:'Nos encantaría que nos acompañaras a celebrar este nuevo capítulo. Aquí comienza la cuenta regresiva.',days:'DÍAS',hours:'HORAS',minutes:'MINUTOS',seconds:'SEGUNDOS',ceremony:'La ceremonia',ceremonyCopy:'Un momento para celebrar el amor rodeados de las personas que más queremos.',reception:'La recepción',receptionCopy:'Brindemos, bailemos y hagamos recuerdos que duren toda la vida.',venuePending:'Lugar y hora por confirmar',galleryKicker:'CAPÍTULO TRES — RECUERDOS',galleryTitle:'Pequeños instantes.<br><em>Grandes recuerdos.</em>',galleryCopy:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Algunas historias se cuentan mejor con imágenes.',galleryCaption1:'Nuestro comienzo',galleryCaption2:'Cada detalle',galleryCaption3:'Para siempre',rsvpKicker:'UNA INVITACIÓN DESDE EL CORAZÓN',rsvpTitle:'Lo mejor de este día<br>será <em>compartirlo contigo.</em>',rsvpCopy:'Tu presencia hará que esta historia sea todavía más especial. Esperamos celebrar juntos.',rsvpButton:'CONFIRMAR ASISTENCIA',rsvpNote:'Gracias por ser parte de nuestra historia.',formIntro:'Por favor, completa tus datos para confirmar tu asistencia.',formName:'Nombre completo *',namePlaceholder:'Nombre y apellido',formPhone:'Número de teléfono *',formAttendance:'¿Nos acompañarás? *',attending:'Sí, asistiré',notAttending:'No podré asistir',formGuests:'Personas incluyéndote *',formTransport:'¿Necesitas transporte? *',transportYes:'Sí',transportNo:'No',formPickup:'¿Desde qué zona necesitas transporte?',pickupPlaceholder:'Colonia o punto de referencia',formMessage:'Mensaje para los novios (opcional)',messagePlaceholder:'Escribe un mensaje especial...',formSubmit:'PREPARAR CONFIRMACIÓN',formDisclaimer:'Se abrirá tu correo con la confirmación preparada. Debes enviarlo para que llegue a los novios.',formInvalid:'Completa los campos obligatorios para continuar.',formReady:'Tu mensaje está listo. Envíalo desde tu aplicación de correo para confirmar.',backTop:'VOLVER ARRIBA ↑',musicOff:'ACTIVAR MÚSICA',musicOn:'PAUSAR MÚSICA',musicMissing:'AGREGA TU CANCIÓN',musicError:'NO SE PUDO REPRODUCIR'},
-  en: {navStory:'Our story',navDetails:'The celebration',navGallery:'Memories',navRsvp:'RSVP',heroEyebrow:'A FOREVER KIND OF LOVE · APRIL 11, 2027',heroPrelude:'With all our love',heroSubtitle:'The beginning of our forever.',discover:'Discover our story',heroLocation:'EL SALVADOR · 2027',scroll:'SCROLL TO EXPLORE',storyKicker:'CHAPTER ONE — OUR STORY',storyTitle:'Two souls.<br><em>One story.</em>',storyBody:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis neque sed arcu tempus luctus. Every encounter, every smile and every little moment has brought us here.',storyCaption:'A love in bloom',quoteOverline:'LOVE IS IN THE DETAILS',quoteText:'“And suddenly, every road<br>led us <em>to the same place.</em>”',detailsKicker:'CHAPTER TWO — THE BIG DAY',detailsTitle:'One date.<br><em>A thousand feelings.</em>',detailsIntro:'We would love for you to join us as we celebrate this new chapter. The countdown begins here.',days:'DAYS',hours:'HOURS',minutes:'MINUTES',seconds:'SECONDS',ceremony:'The ceremony',ceremonyCopy:'A moment to celebrate love surrounded by the people who matter most.',reception:'The reception',receptionCopy:'Let us toast, dance and make memories that last a lifetime.',venuePending:'Venue and time to be announced',galleryKicker:'CHAPTER THREE — MEMORIES',galleryTitle:'Little moments.<br><em>Lasting memories.</em>',galleryCopy:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Some stories are best told through images.',galleryCaption1:'Our beginning',galleryCaption2:'Every detail',galleryCaption3:'Forever',rsvpKicker:'AN INVITATION FROM THE HEART',rsvpTitle:'The best part of this day<br>will be <em>sharing it with you.</em>',rsvpCopy:'Your presence will make this story even more special. We cannot wait to celebrate together.',rsvpButton:'KINDLY RSVP',rsvpNote:'Thank you for being part of our story.',formIntro:'Please fill in your details to RSVP.',formName:'Full name *',namePlaceholder:'First and last name',formPhone:'Phone number *',formAttendance:'Will you join us? *',attending:'Yes, I will attend',notAttending:'Sorry, I cannot attend',formGuests:'Guests including yourself *',formTransport:'Do you need transportation? *',transportYes:'Yes',transportNo:'No',formPickup:'Where would you need to be picked up?',pickupPlaceholder:'Neighborhood or pickup landmark',formMessage:'Message for the couple (optional)',messagePlaceholder:'Write a special message...',formSubmit:'PREPARE RSVP',formDisclaimer:'Your email app will open with a prepared RSVP. You must send it for the couple to receive it.',formInvalid:'Please complete the required fields.',formReady:'Your message is ready. Send it from your email app to RSVP.',backTop:'BACK TO TOP ↑',musicOff:'PLAY MUSIC',musicOn:'PAUSE MUSIC',musicMissing:'ADD YOUR SONG',musicError:'CANNOT PLAY AUDIO'}
-};
-const $ = id => document.getElementById(id);
-let lang = 'es';
-function setLanguage(next){lang=next;document.documentElement.lang=next;document.querySelectorAll('[data-i18n]').forEach(el=>{const value=translations[next][el.dataset.i18n];if(value!==undefined)el.textContent=value});document.querySelectorAll('[data-i18n-html]').forEach(el=>{const value=translations[next][el.dataset.i18nHtml];if(value!==undefined)el.innerHTML=value});$('languageToggle').innerHTML=(next==='es'?'EN':'ES')+' <span aria-hidden="true">↗</span>';$('languageToggle').setAttribute('aria-label',next==='es'?'Switch language to English':'Cambiar idioma a español');$('musicToggle').querySelector('.music-text').textContent=translations[next][audio.paused?'musicOff':'musicOn'];}
-$('languageToggle').addEventListener('click',()=>setLanguage(lang==='es'?'en':'es'));
-const audio=$('backgroundMusic');const musicButton=$('musicToggle');
-musicButton.addEventListener('click',async()=>{if(!audio.paused){audio.pause();musicButton.classList.remove('playing');musicButton.setAttribute('aria-pressed','false');musicButton.querySelector('.music-text').textContent=translations[lang].musicOff;return;}try{await audio.play();musicButton.classList.add('playing');musicButton.setAttribute('aria-pressed','true');musicButton.querySelector('.music-text').textContent=translations[lang].musicOn;}catch(e){musicButton.querySelector('.music-text').textContent=translations[lang].musicMissing;console.info('Add b-music/wedding-song.mp3 to enable music.',e);}});
-const menu=$('mobileNav'),menuToggle=$('menuToggle');function closeMenu(){menu.classList.remove('open');menu.inert=true;menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Abrir menú');$('header').classList.remove('menu-active');document.body.classList.remove('menu-open')}menuToggle.addEventListener('click',()=>{if(menu.classList.contains('open')){closeMenu();return;}menu.inert=false;menu.classList.add('open');menuToggle.setAttribute('aria-expanded','true');menuToggle.setAttribute('aria-label','Cerrar menú');$('header').classList.add('menu-active');document.body.classList.add('menu-open')});menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));window.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-function countdown(){const diff=Math.max(0,new Date(WEDDING_DATE).getTime()-Date.now());const days=Math.floor(diff/86400000),hours=Math.floor(diff/3600000)%24,minutes=Math.floor(diff/60000)%60,seconds=Math.floor(diff/1000)%60;$('days').textContent=String(days).padStart(3,'0');$('hours').textContent=String(hours).padStart(2,'0');$('minutes').textContent=String(minutes).padStart(2,'0');$('seconds').textContent=String(seconds).padStart(2,'0');}countdown();setInterval(countdown,1000);
-const video=$('heroVideo');video.addEventListener('loadeddata',()=>video.classList.add('is-ready'));video.addEventListener('error',()=>video.classList.remove('is-ready'));if(video.readyState>=2)video.classList.add('is-ready');
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if('IntersectionObserver' in window&&!reducedMotion){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -35px 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
-let ticking=false;function updateScroll(){const y=window.scrollY,limit=document.documentElement.scrollHeight-innerHeight;$('progress').style.width=(limit>0?y/limit*100:0)+'%';$('header').classList.toggle('scrolled',y>55);if(!reducedMotion){const hero=$('heroMedia');if(y<innerHeight*1.2)hero.style.transform=`translate3d(0,${Math.min(y*.2,220)}px,0)`;const quote=document.querySelector('.quote-section'),rect=quote.getBoundingClientRect();if(rect.bottom>0&&rect.top<innerHeight){const offset=(rect.top+rect.height/2-innerHeight/2)*-.12;quote.querySelector('.quote-parallax').style.transform=`translate3d(0,${offset}px,0)`;}}ticking=false;}window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateScroll);ticking=true}},{passive:true});updateScroll();
+(() => {
+ const config = window.WEDDING_CONFIG, translations = window.TRANSLATIONS;
+ let language = config.defaultLanguage === 'en' ? 'en' : 'es';
+ const $ = id => document.getElementById(id);
+ const date = config.weddingDate ? new Date(config.weddingDate) : null;
+ const hasDate = date && !isNaN(date);
 
-// RSVP: static website integration via mailto. Replace this address before publishing.
-const RSVP_EMAIL = 'confirmaciones@example.com';
-const rsvpForm = $('rsvpForm');
-const attendanceRadios = [...rsvpForm.querySelectorAll('input[name="attendance"]')];
-const transportRadios = [...rsvpForm.querySelectorAll('input[name="transport"]')];
-function updateRsvpFields(){
-  const attending = rsvpForm.elements.attendance.value === 'yes';
-  const transport = attending && rsvpForm.elements.transport.value === 'yes';
-  $('guestCountField').hidden = !attending;
-  $('transportField').hidden = !attending;
-  $('pickupField').hidden = !transport;
-  $('guestCount').disabled = !attending;
-  $('pickupLocation').disabled = !transport;
-  $('pickupLocation').required = transport;
-  transportRadios.forEach(r => r.disabled = !attending);
-}
-[...attendanceRadios,...transportRadios].forEach(r=>r.addEventListener('change',updateRsvpFields));
-updateRsvpFields();
-rsvpForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const status = $('rsvpStatus');
-  status.textContent = '';
-  if (!rsvpForm.reportValidity()) {status.textContent = translations[lang].formInvalid;return;}
-  const f = rsvpForm.elements;
-  const attending = f.attendance.value === 'yes';
-  const values = [
-    ['Name / Nombre',f.guestName.value.trim()],
-    ['Phone / Teléfono',f.guestPhone.value.trim()],
-    ['Attendance / Asistencia',attending?'Yes / Sí':'No'],
-    ['Guests / Personas',attending?f.guestCount.value:'—'],
-    ['Transport / Transporte',attending?(f.transport.value==='yes'?'Yes / Sí':'No'):'—'],
-    ['Pickup / Recogida',attending && f.transport.value==='yes'?f.pickupLocation.value.trim():'—'],
-    ['Message / Mensaje',f.guestMessage.value.trim()||'—']
-  ];
-  const subject = `RSVP Michael & Daniela — ${f.guestName.value.trim()}`;
-  const body = values.map(([label,value])=>`${label}: ${value}`).join('\n');
-  status.textContent = translations[lang].formReady;
-  window.location.href = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+ // ---- Datos desde config ----
+ document.querySelectorAll('[data-time]').forEach(el => el.textContent = (config.schedule || {})[el.dataset.time] || '--:--');
+ const v = config.venue || {}, r = config.registry || {};
+ $('venueName').textContent = v.name || ''; $('venueAddress').textContent = v.address || ''; $('mapsBtn').href = v.mapsUrl || '#';
+ $('registryStore').textContent = r.store || ''; $('eventNumber').textContent = r.eventNumber || ''; $('registryBtn').href = r.url || '#';
+ $('dressBtn').href = config.dressExamplesUrl || '#';
+
+ // ---- Calendario ----
+ function renderCalendar(t) {
+  const wrap = document.querySelector('.cal-wrap');
+  if (!hasDate) { wrap.style.display = 'none'; return; }
+  // Fecha en hora de El Salvador (UTC-6)
+  const local = new Date(date.getTime() - 6 * 3600000);
+  const y = local.getUTCFullYear(), m = local.getUTCMonth(), d = local.getUTCDate();
+  $('calMonth').textContent = t.months[m];
+  const first = (new Date(Date.UTC(y, m, 1)).getUTCDay() + 6) % 7, total = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  let html = t.dows.map(x => `<span class="dow">${x}</span>`).join('') + '<span></span>'.repeat(first);
+  for (let i = 1; i <= total; i++) html += i === d ? '<span class="wed" title="' + i + '">♥</span>' : `<span>${i}</span>`;
+  $('calGrid').innerHTML = html;
+  const pad = n => String(n).padStart(2, '0');
+  $('heroDate').textContent = language === 'en' ? `${pad(m + 1)} | ${pad(d)} | ${y}` : `${pad(d)} | ${pad(m + 1)} | ${y}`;
+ }
+
+ // ---- Idioma ----
+ function translate(lang) {
+  language = lang; document.documentElement.lang = lang; const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { const val = t[el.dataset.i18n]; if (typeof val === 'string') el.textContent = val; });
+  $('heroDate').textContent = config.displayDate[lang];
+  $('rsvpDeadline').textContent = (config.rsvpDeadline || {})[lang] || '—';
+  renderCalendar(t);
+  $('lang').textContent = lang === 'es' ? 'EN' : 'ES';
+  document.title = lang === 'es' ? 'Daniela & Michael | Nuestra boda' : 'Daniela & Michael | Our Wedding';
+ }
+ $('lang').addEventListener('click', () => translate(language === 'es' ? 'en' : 'es')); translate(language);
+
+ // ---- Animación al hacer scroll ----
+ const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold: .12 });
+ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+ // ---- Música ----
+ const music = $('backgroundMusic'), toggle = $('musicToggle');
+ async function playMusic(silent) {
+  try { await music.play(); toggle.classList.add('playing'); $('musicIcon').textContent = 'Ⅱ'; }
+  catch (err) { toggle.title = translations[language].musicMissing; if (!silent) alert(translations[language].musicMissing); }
+ }
+ toggle.addEventListener('click', () => {
+  if (!music.paused) { music.pause(); toggle.classList.remove('playing'); $('musicIcon').textContent = '♫'; return; }
+  playMusic(false);
+ });
+
+ // ---- Sobre de entrada ----
+ $('envelope').addEventListener('click', () => {
+  $('envelopeScreen').classList.add('opened');
+  document.body.classList.remove('locked');
+  playMusic(true); // intenta iniciar la música al abrir (sin alertas si falta el archivo)
+  setTimeout(() => $('envelopeScreen').remove(), 2000);
+ }, { once: true });
+
+ // ---- Cuenta regresiva ----
+ function updateCountdown() {
+  if (!hasDate) { ['days', 'hours', 'minutes', 'seconds'].forEach(id => $(id).textContent = '—'); return; }
+  const remaining = Math.max(0, date.getTime() - Date.now());
+  const values = [Math.floor(remaining / 86400000), Math.floor(remaining / 3600000) % 24, Math.floor(remaining / 60000) % 60, Math.floor(remaining / 1000) % 60];
+  ['days', 'hours', 'minutes', 'seconds'].forEach((id, i) => $(id).textContent = String(values[i]).padStart(2, '0'));
+ }
+ updateCountdown(); setInterval(updateCountdown, 1000);
+
+ // ---- Confirmación ----
+ const form = $('rsvpForm');
+ form.addEventListener('change', () => $('plusOne').classList.toggle('show', form.attendance.value === 'couple'));
+ form.addEventListener('submit', event => {
+  event.preventDefault(); const t = translations[language];
+  const name = $('guest').value.trim(); if (!name) { $('formMessage').textContent = t.nameRequired; $('guest').focus(); return; }
+  if (!config.rsvpEmail) { $('formMessage').textContent = t.rsvpPending; return; }
+  const att = form.attendance.value, attLabel = { yes: translations.es.yes, no: translations.es.no, couple: translations.es.couple }[att];
+  const plus = att === 'couple' ? $('plusName').value.trim() : '';
+  const subject = encodeURIComponent(`RSVP Daniela & Michael - ${name}`);
+  const body = encodeURIComponent(`Nombre / Name: ${name}\nAsistencia / Attendance: ${attLabel}\n+1: ${plus || '-'}\nAlergias / Allergies: ${$('allergies').value.trim() || '-'}`);
+  $('formMessage').textContent = t.rsvpPrepared;
+  window.location.href = `mailto:${config.rsvpEmail}?subject=${subject}&body=${body}`;
+ });
+
+ // ---- Barra de progreso ----
+ window.addEventListener('scroll', () => { $('progress').style.width = (100 * window.scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight)) + '%'; }, { passive: true });
+})();

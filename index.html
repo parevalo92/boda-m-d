@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4a523b">
+<meta name="description" content="Una celebración de amor: Daniela y Michael">
+<title>Daniela & Michael | Nuestra boda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="locked">
+<div class="progress" id="progress"></div>
+
+<!-- ============ SOBRE DE ENTRADA ============ -->
+<div class="envelope-screen" id="envelopeScreen">
+  <button class="envelope" id="envelope" aria-label="Abrir invitación">
+    <span class="env-flap"></span>
+    <span class="env-monogram">D<em>&</em>M</span>
+    <span class="seal"><span>D&M</span></span>
+    <span class="env-text script" data-i18n="openEnvelope">Presiona el sobre para abrirlo</span>
+  </button>
+</div>
+
+<button class="lang" id="lang" aria-label="Cambiar idioma">EN</button>
+
+<main class="invite">
+
+  <!-- ============ PORTADA ============ -->
+  <section class="hero-card" id="inicio">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="weMarry">NOS CASAMOS</span>
+      <p class="hero-date" id="heroDate">Fecha por confirmar</p>
+      <h1 class="script">Daniela <em>&</em> Michael</h1>
+      <div class="lace-oval">
+        <img src="assets/img/couple.jpg" alt="Daniela y Michael">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BIENVENIDA + CALENDARIO ============ -->
+  <section class="welcome" id="historia">
+    <div class="reveal">
+      <div class="flourish">❦</div>
+      <h2 class="script" data-i18n="welcomeTitle">¡Queridos amigos y familiares!</h2>
+      <p data-i18n="welcomeText">Estamos encantados de invitarlos a nuestra primera celebración como familia. ¡Nuestra boda!</p>
+      <p data-i18n="welcomeText2">Acompáñennos a vivir uno de los días más importantes de nuestras vidas.</p>
+      <div class="flourish small">✧ ─── ❀ ─── ✧</div>
+    </div>
+    <div class="cal-wrap reveal">
+      <img class="lily lily-left" src="assets/img/lilies.png" alt="">
+      <div class="cal-envelope">
+        <div class="calendar">
+          <p class="script cal-month" id="calMonth">Mes</p>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+      </div>
+      <span class="seal seal-sm"><span>D&M</span></span>
+    </div>
+    <p class="script welcome-foot reveal" data-i18n="checkItinerary">Revisa el itinerario de nuestra boda</p>
+  </section>
+
+  <!-- ============ ITINERARIO ============ -->
+  <section class="itinerary paper" id="detalles">
+    <h2 class="script reveal" data-i18n="itineraryTitle">Itinerario</h2>
+    <div class="timeline-v2">
+      <span class="tl-heart">♥</span>
+      <article class="reveal"><img src="assets/icons/cocktail.svg" alt=""><div><h3 class="script" data-i18n="reception">Recepción</h3><b data-time="reception">--:--</b><p data-i18n="receptionDesc">Cóctel de bienvenida</p></div></article>
+      <article class="reveal"><img src="assets/icons/rings.svg" alt=""><div><h3 class="script" data-i18n="ceremony">Ceremonia</h3><b data-time="ceremony">--:--</b><p data-i18n="ceremonyDesc">Nuestro para siempre comienza aquí</p></div></article>
+      <article class="reveal"><img src="assets/icons/dinner.svg" alt=""><div><h3 class="script" data-i18n="dinner">Cena</h3><b data-time="dinner">--:--</b><p data-i18n="dinnerDesc">Hora de disfrutar comida deliciosa y divertirse</p></div></article>
+      <article class="reveal"><img src="assets/icons/cake.svg" alt=""><div><h3 class="script" data-i18n="cake">Pastel</h3><b data-time="cake">--:--</b><p data-i18n="cakeDesc">Un dulce símbolo de nuestro feliz matrimonio</p></div></article>
+      <article class="reveal"><img src="assets/icons/flourish.svg" alt=""><div><h3 class="script" data-i18n="end">Fin del evento</h3><b data-time="end">--:--</b><p data-i18n="endDesc">Incluso lo más hermoso tiene que terminar</p></div></article>
+    </div>
+  </section>
+
+  <!-- ============ UBICACIÓN ============ -->
+  <section class="location-v2">
+    <div class="reveal">
+      <h2 class="script" data-i18n="locationTitle">Ubicación</h2>
+      <p class="venue-name" id="venueName">Lugar por anunciar</p>
+      <p class="venue-address" id="venueAddress"></p>
+      <a class="pill-btn light" id="mapsBtn" href="#" target="_blank" rel="noopener" data-i18n="seeLocation">Ver ubicación</a>
+    </div>
+    <img class="venue-art reveal" src="assets/img/venue.png" alt="Ilustración del lugar">
+  </section>
+
+  <!-- ============ MESA DE REGALOS ============ -->
+  <section class="gifts lace-edge">
+    <img class="lily lily-top" src="assets/img/lilies.png" alt="">
+    <div class="gift-tag reveal">
+      <div class="tag-holes"><i></i><i></i><i></i></div>
+      <h2 class="script" data-i18n="giftsTitle">Mesa de regalos</h2>
+      <p data-i18n="giftsText">Nos gustaría tener las manos libres para dar abrazos, ya que su presencia es lo más importante; pero si aun así desean hacernos un regalo, les compartimos nuestra mesa de regalos.</p>
+      <p class="event-no"><span data-i18n="eventNumber">Número de evento:</span> <span id="eventNumber">xxxxxx</span></p>
+      <p class="script store" id="registryStore">Tienda</p>
+      <a class="pill-btn" id="registryBtn" href="#" target="_blank" rel="noopener" data-i18n="seeRegistry">Ver mesa de regalos</a>
+    </div>
+    <img class="lily lily-bottom" src="assets/img/lilies.png" alt="">
+  </section>
+
+  <!-- ============ VESTIMENTA ============ -->
+  <section class="dress-v2 paper lace-edge">
+    <div class="reveal">
+      <h2 class="script" data-i18n="dressTitle">Vestimenta</h2>
+      <p data-i18n="dressIntro">Nos encantará verte en tonos pastel para crear juntos un ambiente armonioso y especial.</p>
+      <p><b data-i18n="women">Mujeres:</b> <span data-i18n="womenText">Vestidos de telas fluidas en tonos pastel.</span></p>
+      <p><b data-i18n="avoid">Evitar:</b> <span data-i18n="womenAvoid">Brillos, lentejuelas y colores como negro, blanco, beige o similares, para mantener la armonía de la boda.</span></p>
+      <p><b data-i18n="men">Hombres:</b> <span data-i18n="menText">Traje ligero o pantalón de vestir con camisa lisa en tonos claros.</span></p>
+      <p><b data-i18n="avoid">Evitar:</b> <span data-i18n="menAvoid">Mezclilla, camisas de manga corta y el color negro, para mantener la armonía de la boda.</span></p>
+      <div class="swatches-v2">
+        <span style="--swatch:#e3a3a6"></span><span style="--swatch:#efb79c"></span><span style="--swatch:#f0db8f"></span><span style="--swatch:#acd6e6"></span><span style="--swatch:#c6b5e3"></span><span style="--swatch:#acd8a4"></span>
+      </div>
+      <img class="dress-art" src="assets/img/dress-code.png" alt="Ejemplos de vestimenta">
+      <a class="pill-btn" id="dressBtn" href="#" target="_blank" rel="noopener" data-i18n="seeExamples">Mira algunos ejemplos</a>
+    </div>
+  </section>
+
+  <!-- ============ CONFIRMACIÓN ============ -->
+  <section class="rsvp-v2" id="confirmacion">
+    <div class="reveal">
+      <h2 class="script" data-i18n="rsvpTitle">Confirmación</h2>
+      <p class="rsvp-intro"><span data-i18n="rsvpText">Para preparar la celebración y garantizar la comodidad de todos los presentes, pedimos llenar nuestro cuestionario antes del</span> <span id="rsvpDeadline">—</span>.</p>
+      <form id="rsvpForm" novalidate>
+        <label for="guest" data-i18n="name">Tu nombre</label>
+        <input id="guest" name="guest" required autocomplete="name">
+
+        <fieldset>
+          <legend data-i18n="attend">¿Asistirás a nuestra boda?</legend>
+          <label class="radio"><input type="radio" name="attendance" value="yes" checked><span data-i18n="yes">¡Acepto con mucho gusto!</span></label>
+          <label class="radio"><input type="radio" name="attendance" value="no"><span data-i18n="no">Lamentablemente no podré asistir</span></label>
+          <label class="radio"><input type="radio" name="attendance" value="couple"><span data-i18n="couple">Asistiré en pareja</span></label>
+        </fieldset>
+
+        <div class="plus-one" id="plusOne">
+          <label for="plusName" data-i18n="plusName">Nombre de tu +1</label>
+          <input id="plusName" name="plusName">
+        </div>
+
+        <label for="allergies" data-i18n="allergies">¿Alguna alergia que debamos tener en cuenta al planificar nuestro menú?</label>
+        <input id="allergies" name="allergies">
+
+        <button class="pill-btn wide" type="submit" data-i18n="send">Enviar</button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CUENTA REGRESIVA ============ -->
+  <section class="countdown-v2">
+    <div class="reveal">
+      <h2 class="script" data-i18n="countdownTitle">Nuestro para siempre comienza en...</h2>
+      <div class="countdown" id="countdown">
+        <div><b id="days">--</b><small data-i18n="days">Días</small></div><i>:</i>
+        <div><b id="hours">--</b><small data-i18n="hours">Horas</small></div><i>:</i>
+        <div><b id="minutes">--</b><small data-i18n="minutes">Minutos</small></div><i>:</i>
+        <div><b id="seconds">--</b><small data-i18n="seconds">Segundos</small></div>
+      </div>
+    </div>
+    <div class="lace-heart reveal">
+      <svg viewBox="0 0 300 270" aria-hidden="true">
+        <path class="h-fill" d="M150 255C60 190 12 140 12 82 12 40 44 12 84 12c30 0 52 16 66 40 14-24 36-40 66-40 40 0 72 28 72 70 0 58-48 108-138 173z"/>
+        <path class="h-lace1" d="M150 255C60 190 12 140 12 82 12 40 44 12 84 12c30 0 52 16 66 40 14-24 36-40 66-40 40 0 72 28 72 70 0 58-48 108-138 173z"/>
+        <path class="h-lace2" d="M150 236C74 180 30 136 30 84 30 50 56 30 86 30c28 0 48 16 64 44 16-28 36-44 64-44 30 0 56 20 56 54 0 52-44 96-120 152z"/>
+      </svg>
+      <p class="script"><span data-i18n="withLove">¡Con amor de</span><br>Daniela y Michael!</p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="script">Daniela & Michael</p>
+    <span data-i18n="footer">Con amor, para siempre.</span>
+  </footer>
+</main>
+
+<button id="musicToggle" class="music-toggle" aria-label="Reproducir música" title="Música"><span id="musicIcon">♫</span><span class="music-text" data-i18n="music">Música</span></button>
+<audio id="backgroundMusic" src="audio/b-music/wedding-song.mp3" loop preload="none"></audio>
+
+<script src="js/config.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
